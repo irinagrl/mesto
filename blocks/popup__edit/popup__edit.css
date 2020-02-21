@@ -1,0 +1,5 @@
+@import url(../popup/popup.css);
+@import url(./_is-opened/popup__edit_is-opened.css);
+@import url(./input-container/input-container__invalid.css);
+@import url(./__close/popup__close_edit.css);
+@import url(./__button/button_edit.css);

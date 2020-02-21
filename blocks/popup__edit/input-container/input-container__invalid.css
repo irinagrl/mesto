@@ -1,0 +1,5 @@
+.input-container__invalid {
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+}
