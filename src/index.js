@@ -1,9 +1,7 @@
 import Api from './js/Api.js';
-// import Card from './js/Card.js';
 import CardList from './js/CardList.js';
 import FormValidator from './js/FormValidator.js';
 import FormValidatorImg from './js/FormValidatorImg.js';
-// import initialCards from './js/initialCards.js';
 import Popup from './js/Popup.js';
 import UserInfo from './js/UserInfo.js';
 
