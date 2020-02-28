@@ -7,7 +7,7 @@ export default class Api {
     }
 
     getUserInfo() {
-        return fetch('http://95.216.175.5/cohort7/users/me', {
+        return fetch('https://praktikum.tk/cohort7/users/me', {
             headers: {
                 authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
             }
@@ -22,7 +22,7 @@ export default class Api {
     }
 
     getCards() {
-        return fetch('http://95.216.175.5/cohort7/cards', {
+        return fetch('https://praktikum.tk/cohort7/cards', {
             headers: {
                 authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
             }
@@ -36,7 +36,7 @@ export default class Api {
     }
 
     editUserInfo(username, aboutUser) {
-        return fetch('http://95.216.175.5/cohort7/users/me', {
+        return fetch('https://praktikum.tk/cohort7/users/me', {
             method: 'PATCH',
             headers: {
                 authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
