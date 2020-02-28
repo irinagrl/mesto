@@ -54,5 +54,4 @@ export default class Api {
                 return res.json(); 
             })
     }
-}
-  
+}  
