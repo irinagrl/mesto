@@ -1,6 +1,6 @@
-'use strict';
+import UserInfo from './UserInfo.js';
 
-class Api {
+export default class Api {
     constructor(options) {
         this.options = options;
         this.userInfo = new UserInfo('.profile');

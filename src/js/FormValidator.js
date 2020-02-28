@@ -1,6 +1,7 @@
-'use strict';
+import Api from './Api.js';
+import UserInfo from './UserInfo.js';
 
-class FormValidator {
+export default class FormValidator {
     constructor(element) {
         this.element = element;
         const edit = document.forms.edit;
