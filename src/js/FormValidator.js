@@ -61,6 +61,7 @@ export default class FormValidator {
     }
 
     setSubmitButtonState(inputs) {
+        event.preventDefault();
         const submit = document.querySelector('#submit');
 
         const isValidForm = Array.from(inputs).every((input) => this.checkInputValidity(input));
@@ -75,13 +76,14 @@ export default class FormValidator {
         if (isValidForm) {
             this.api.editUserInfo(username.value, aboutUser.value)
             .then((result) => {
-                this.userInfo.updateUserInfo(result)
+                this.userInfo.updateUserInfo(result);
+                document.querySelector('.popup__edit').classList.remove('popup_is-opened')
             })
             .catch((err) => {
                 console.log(err); 
             });
 
-            document.querySelector('.popup__edit').classList.remove('popup_is-opened');
+            // document.querySelector('.popup__edit').classList.remove('popup_is-opened');
         }
     }
 

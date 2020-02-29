@@ -30,11 +30,11 @@ export default class Api {
             headers: this.options.headers
         })
 
-        // return fetch('http://praktikum.tk/cohort7/cards', {
-        //     headers: {
-        //         authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
-        //     }
-        // })
+            // return fetch('http://praktikum.tk/cohort7/cards', {
+            //     headers: {
+            //         authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
+            //     }
+            // })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
@@ -44,14 +44,14 @@ export default class Api {
     }
 
     editUserInfo(username, aboutUser) {
-        // return fetch('http://praktikum.tk/cohort7/users/me', {
-            return fetch(`${this.options.baseUrl}/users/me`, {
+        return fetch('http://praktikum.tk/cohort7/users/me', {
+            // return fetch(`${this.options.baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: this.options.headers,
-            // headers: {
-            //     authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
-            //     'Content-Type': 'application/json'
-            // },
+            // headers: this.options.headers,
+            headers: {
+                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 name: username,
                 about: aboutUser
