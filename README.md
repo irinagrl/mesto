@@ -1,7 +1,7 @@
 # Mesto
 A single-page interactive website with basic picture gallery. A studying project of on-line front-end development course at Yandex.Praktikum.
 
-## v0.0.4
+## v0.0.5
 
 ### gh-pages
 http://imoysevich.github.io/mesto
