@@ -7,26 +7,34 @@ export default class Api {
     }
 
     getUserInfo() {
-        return fetch('https://praktikum.tk/cohort7/users/me', {
-            headers: {
-                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
-            }
+        // return fetch('http://praktikum.tk/cohort7/users/me', {
+        //     headers: {
+        //         authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
+        //     }
+        // })
+
+        return fetch(`${this.options.baseUrl}/users/me`, {
+            headers: this.options.headers
         })
-        
+
             .then((res) => {
                 if (!res.ok) {
-                    return Promise.reject(`Ошибка: ${res.status}`); 
+                    return Promise.reject(`Ошибка: ${res.status}`);
                 }
                 return res.json();
             })
     }
 
     getCards() {
-        return fetch('https://praktikum.tk/cohort7/cards', {
-            headers: {
-                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
-            }
+        return fetch(`${this.options.baseUrl}/cards`, {
+            headers: this.options.headers
         })
+
+        // return fetch('http://praktikum.tk/cohort7/cards', {
+        //     headers: {
+        //         authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a'
+        //     }
+        // })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
@@ -36,12 +44,14 @@ export default class Api {
     }
 
     editUserInfo(username, aboutUser) {
-        return fetch('https://praktikum.tk/cohort7/users/me', {
+        // return fetch('http://praktikum.tk/cohort7/users/me', {
+            return fetch(`${this.options.baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: {
-                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
-                'Content-Type': 'application/json'
-            },
+            headers: this.options.headers,
+            // headers: {
+            //     authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
+            //     'Content-Type': 'application/json'
+            // },
             body: JSON.stringify({
                 name: username,
                 about: aboutUser
@@ -51,7 +61,7 @@ export default class Api {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
                 }
-                return res.json(); 
+                return res.json();
             })
     }
 }  

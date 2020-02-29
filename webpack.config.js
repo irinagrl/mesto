@@ -1,12 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// подключаем плагин
 const isDev = process.env.NODE_ENV === 'development';
-// создаем переменную для development-сборки
 
 module.exports = {
     entry: { main: './src/index.js' },
@@ -30,13 +28,9 @@ module.exports = {
                     'css-loader', 'postcss-loader'
                 ]
             },
-            // {
-            //     test: /\.css$/,
-            //     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // добавили минификацию CSS
-            // },
             {
                 test: /\.(png|jpg|gif|ico|svg)$/,
-                loader: "file-loader?name=./images/[name].[ext]", // указали папку, куда складывать изображения
+                loader: "file-loader?name=./images/[name].[ext]",
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
@@ -64,7 +58,8 @@ module.exports = {
         }),
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
-            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            'SERVICE_URL': JSON.stringify('https://praktikum.tk')
         })
     ]
 };
