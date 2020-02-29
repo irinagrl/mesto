@@ -24,23 +24,11 @@ import './images/logo.svg';
   const serverUrl = NODE_ENV === "development" ? "http://praktikum.tk/cohort7" : "https://praktikum.tk/cohort7";
   const api = new Api({
     baseUrl: serverUrl,
-    //baseUrl: 'http://95.216.175.5/cohort7',
-    // baseUrl: 'https://praktikum.tk/cohort7',
     headers: {
       authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
       'Content-Type': 'application/json'
     }
   });
-
-  // const api = new Api();
-  // // const serverUrl = NODE_ENV === "development" ? "http://praktikum.tk/cohort7" : "https://praktikum.tk/cohort7";
-  // const options = {
-  //   baseUrl: 'http://praktikum.tk/cohort7',
-  //   headers: {
-  //     authorization: "6f6ef78e-9a11-4731-8716-e6c213c6ad6a",
-  //     "Content-Type": "application/json"
-  //   }
-  // };
 
   const validatorUserInfo = new FormValidator(api);
   const validatorImage = new FormValidatorImg(cardlist);
