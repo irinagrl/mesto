@@ -1,6 +1,7 @@
-'use strict';
+import Api from './Api.js';
+import UserInfo from './UserInfo.js';
 
-class FormValidator {
+export default class FormValidator {
     constructor(element) {
         this.element = element;
         const edit = document.forms.edit;
@@ -60,6 +61,7 @@ class FormValidator {
     }
 
     setSubmitButtonState(inputs) {
+        event.preventDefault();
         const submit = document.querySelector('#submit');
 
         const isValidForm = Array.from(inputs).every((input) => this.checkInputValidity(input));
@@ -74,13 +76,14 @@ class FormValidator {
         if (isValidForm) {
             this.api.editUserInfo(username.value, aboutUser.value)
             .then((result) => {
-                this.userInfo.updateUserInfo(result)
+                this.userInfo.updateUserInfo(result);
+                document.querySelector('.popup__edit').classList.remove('popup_is-opened')
             })
             .catch((err) => {
                 console.log(err); 
             });
 
-            document.querySelector('.popup__edit').classList.remove('popup_is-opened');
+            // document.querySelector('.popup__edit').classList.remove('popup_is-opened');
         }
     }
 

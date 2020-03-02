@@ -1,6 +1,4 @@
-'use strict';
-
-class FormValidatorImg {
+export default class FormValidatorImg {
   constructor(cardlist,element) {
     this.element = element;
     const form = document.forms.newform;
