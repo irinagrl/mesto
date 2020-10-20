@@ -13,7 +13,7 @@ export default class Card {
         placeCard.classList.add("place-card");
         placeCard.insertAdjacentHTML('afterbegin', `
         <div class="place-card__image">
-        <button class="place-card__delete-icon"></button>
+            <button class="place-card__delete-icon"></button>
         </div>
         <div class="place-card__description">
         <h3 class="place-card__name"></h3>
