@@ -5,7 +5,6 @@ export default class FormValidator {
     constructor(element) {
         this.element = element;
         const edit = document.forms.edit;
-
         this.api = new Api();
         const userInfo = new UserInfo('.profile');
         this.userInfo = userInfo;
@@ -75,15 +74,13 @@ export default class FormValidator {
 
         if (isValidForm) {
             this.api.editUserInfo(username.value, aboutUser.value)
-            .then((result) => {
-                this.userInfo.updateUserInfo(result);
-                document.querySelector('.popup__edit').classList.remove('popup_is-opened')
-            })
-            .catch((err) => {
-                console.log(err); 
-            });
-
-            // document.querySelector('.popup__edit').classList.remove('popup_is-opened');
+                .then((result) => {
+                    this.userInfo.updateUserInfo(result);
+                    document.querySelector('.popup__edit').classList.remove('popup_is-opened')
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     }
 

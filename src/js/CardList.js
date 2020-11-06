@@ -1,4 +1,4 @@
-import {initialCards} from './initialCards.js';
+import { initialCards } from './initialCards.js';
 import Card from './Card.js';
 
 export default class CardList {
@@ -11,11 +11,10 @@ export default class CardList {
     addCard(name, link) {
         const placesList = document.querySelector('.places-list');
         placesList.appendChild(this.card.updateCard(name, link));
-        this.card.updateCard(name,link);
+        this.card.updateCard(name, link);
     }
 
     render() {
         initialCards.forEach((element) => this.addCard(element.name, element.link));
-
     }
 }

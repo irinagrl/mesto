@@ -5,8 +5,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
+    externals: {
+        fs: require('fs'),
+    },
     entry: { main: './src/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -60,6 +64,14 @@ module.exports = {
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
             'SERVICE_URL': JSON.stringify('https://praktikum.tk')
+        }),
+        new Dotenv({
+            path: './some.other.env', // load this now instead of the ones in '.env'
+            safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+            allowEmptyValues: true, // allow empty variables (e.g. `FOO=`) (treat it as empty string, rather than missing)
+            systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+            silent: true, // hide any errors
+            defaults: false // load '.env.defaults' as the default values if empty.
         })
     ]
 };

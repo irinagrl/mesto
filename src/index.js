@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import Api from './js/Api.js';
 import CardList from './js/CardList.js';
 import FormValidator from './js/FormValidator.js';
@@ -13,25 +15,24 @@ import './images/like-inactive.svg';
 import './images/close.svg';
 import './images/logo.svg';
 
-(function() {
-
+(function () {
     const cardlist = new CardList();
     const container = '';
     const cards = [];
     cardlist.render(container, cards);
 
     const userInfo = new UserInfo('.profile');
-    const serverUrl = NODE_ENV === "development" ? "http://praktikum.tk/cohort7" : "https://praktikum.tk/cohort7";
+    // const serverUrl = NODE_ENV === "development" ? "http://nomoreparties.co/cohort7" : "https://nomoreparties.co/cohort7";
     const api = new Api({
-        baseUrl: serverUrl,
+        baseUrl: 'http://nomoreparties.co/cohort7',
         headers: {
-            authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
+            authorization: process.env.API_KEY,
             'Content-Type': 'application/json'
         }
     });
 
     const validatorUserInfo = new FormValidator(api);
-    const validatorImage = new FormValidatorImg(cardlist);
+    const validatorImage = new FormValidatorImg(api);
 
     const popupCard = document.querySelector('.popup');
     const infoButton = document.querySelector('.user-info__button');
@@ -63,7 +64,7 @@ import './images/logo.svg';
 
     api.getCards()
         .then((cards) => {
-            cards.forEach((element) => cardlist.addCard(element.name, element.link));
+            cards.slice(0, 20).map((element) => cardlist.addCard(element.name, element.link));
         })
         .catch((err) => console.log(err));
 

@@ -1,8 +1,11 @@
 export default class FormValidatorImg {
-  constructor(cardlist,element) {
+  constructor(list, element) {
     this.element = element;
     const form = document.forms.newform;
-    this.cardlist = cardlist;
+    this.api = new Api();
+    const cardList = new CardList('.places-list');
+    // const userInfo = new UserInfo('.profile');
+    this.list = list;
     form.addEventListener('input', this.handleValidateImg.bind(this));
     form.addEventListener('input', this.inputEditHandlerImg.bind(this));
     form.addEventListener('submit', this.setSubmitButtonStateImg.bind(this));
@@ -68,8 +71,16 @@ export default class FormValidatorImg {
     });
 
     if (isValidForm) {
-      this.cardlist.addCard(newform.elements.name.value, newform.elements.link.value);
-      document.querySelector('.popup').classList.remove('popup_is-opened');
+      this.api.addCard(name.value, link.value)
+        .then((result) => {
+          this.cardList.updateCard(result);
+          document.querySelector('.popup__image').classList.remove('popup_is-opened')
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // this.cardlist.addCard(newform.elements.name.value, newform.elements.link.value);
+      // document.querySelector('.popup').classList.remove('popup_is-opened');
     }
 
   }
