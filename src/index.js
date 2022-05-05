@@ -21,7 +21,7 @@ import './images/logo.svg';
   cardlist.render(container, cards);
 
   const userInfo = new UserInfo('.profile');
-  const serverUrl = NODE_ENV === "development" ? "http://praktikum.tk/cohort7" : "https://praktikum.tk/cohort7";
+  const serverUrl = NODE_ENV === "development" ? "http://nomoreparties.co/cohort7" : "http://nomoreparties.co/cohort7";
   const api = new Api({
     baseUrl: serverUrl,
     //baseUrl: 'http://95.216.175.5/cohort7',
