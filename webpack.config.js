@@ -11,14 +11,15 @@ module.exports = {
     externals: {
         fs: require('fs'),
     },
-    entry: { main: './src/index.js' },
+    entry: {
+        main: './src/index.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
@@ -63,7 +64,7 @@ module.exports = {
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-            'SERVICE_URL': JSON.stringify('https://praktikum.tk')
+            'SERVICE_URL': JSON.stringify('http://nomoreparties.co')
         }),
         new Dotenv({
             path: './some.other.env', // load this now instead of the ones in '.env'

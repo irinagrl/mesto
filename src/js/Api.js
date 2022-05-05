@@ -8,8 +8,8 @@ export default class Api {
 
     getUserInfo() {
         return fetch(`${this.options.baseUrl}/users/me`, {
-            headers: this.options.headers
-        })
+                headers: this.options.headers
+            })
 
             .then((res) => {
                 if (!res.ok) {
@@ -21,10 +21,9 @@ export default class Api {
 
     getCards() {
         return fetch(`${this.options.baseUrl}/cards`, {
-            headers: this.options.headers,
-            count: 3
-            // pageSize: 10
-        })
+                headers: this.options.headers,
+                count: 3
+            })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
@@ -35,16 +34,16 @@ export default class Api {
 
     editUserInfo(username, aboutUser) {
         return fetch('https://nomoreparties.co/cohort7/users/me', {
-            method: 'PATCH',
-            headers: {
-                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: username,
-                about: aboutUser
+                method: 'PATCH',
+                headers: {
+                    authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: username,
+                    about: aboutUser
+                })
             })
-        })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
@@ -55,16 +54,16 @@ export default class Api {
 
     addCard(name, link) {
         return fetch('https://nomoreparties.co/cohort7/cards', {
-            method: 'PATCH',
-            headers: {
-                authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                about: link
+                method: 'PATCH',
+                headers: {
+                    authorization: '6f6ef78e-9a11-4731-8716-e6c213c6ad6a',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    about: link
+                })
             })
-        })
             .then((res) => {
                 if (!res.ok) {
                     return Promise.reject(`Ошибка: ${res.status}`);
@@ -72,4 +71,4 @@ export default class Api {
                 return res.json();
             })
     }
-}  
+}

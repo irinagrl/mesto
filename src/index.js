@@ -22,9 +22,9 @@ import './images/logo.svg';
     cardlist.render(container, cards);
 
     const userInfo = new UserInfo('.profile');
-    // const serverUrl = NODE_ENV === "development" ? "http://nomoreparties.co/cohort7" : "https://nomoreparties.co/cohort7";
+    const serverUrl = NODE_ENV === "development" ? "http://nomoreparties.co/cohort7" : "https://nomoreparties.co/cohort7";
     const api = new Api({
-        baseUrl: 'http://nomoreparties.co/cohort7',
+        baseUrl: serverUrl,
         headers: {
             authorization: process.env.API_KEY,
             'Content-Type': 'application/json'

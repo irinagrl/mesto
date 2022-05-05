@@ -4,7 +4,6 @@ export default class FormValidatorImg {
     const form = document.forms.newform;
     this.api = new Api();
     const cardList = new CardList('.places-list');
-    // const userInfo = new UserInfo('.profile');
     this.list = list;
     form.addEventListener('input', this.handleValidateImg.bind(this));
     form.addEventListener('input', this.inputEditHandlerImg.bind(this));
@@ -21,12 +20,14 @@ export default class FormValidatorImg {
       errorElement.textContent = errorMessage;
       this.activateErrorImg(errorElement);
       return false;
-    } if (element.validity.tooShort || element.validity.tooLong) {
+    }
+    if (element.validity.tooShort || element.validity.tooLong) {
       const errorMessage = "Должно быть от 2 до 30 символов";
       errorElement.textContent = errorMessage;
       this.activateErrorImg(errorElement);
       return false;
-    } if (element.validity.typeMismatch) {
+    }
+    if (element.validity.typeMismatch) {
       const errorMessage = "Здесь должна быть ссылка";
       errorElement.textContent = errorMessage;
       this.activateErrorImg(errorElement);
@@ -79,8 +80,6 @@ export default class FormValidatorImg {
         .catch((err) => {
           console.log(err);
         });
-      // this.cardlist.addCard(newform.elements.name.value, newform.elements.link.value);
-      // document.querySelector('.popup').classList.remove('popup_is-opened');
     }
 
   }
