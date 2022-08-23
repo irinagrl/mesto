@@ -4,7 +4,7 @@ A single-page interactive website with basic picture gallery. A studying project
 ## v0.0.5
 
 ### gh-pages
-http://irinamsvch.github.io/mesto
+http://irinagrl.github.io/mesto
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
